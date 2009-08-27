@@ -3,10 +3,6 @@ app:
         desc:   ViM editor
         ubuntu: vim-full
         fedora: vim-enhanced vim-X11
-    ruby:
-        desc:   ruby interpreter
-        ubuntu: ruby rubygems irb ruby-dev
-        fedora: ruby rubygems irb ruby-devel
     firebird:
         desc:   Firebird super server
         ubuntu: firebird2.1-super firebird2.1-dev flamerobin
@@ -15,3 +11,4 @@ gem:
     capistrano: capistrano
     cucumber: webrat cucumber
     vim: vim-ruby
+
