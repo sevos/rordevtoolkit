@@ -9,6 +9,10 @@ app:
         fedora: firebird-superserver firebird-filesystem firebird-devel flamerobin
 gem:
     capistrano: capistrano
-    cucumber: webrat cucumber
+    cucumber: webrat cucumber rspec rspec-rails ZenTest rcov
     vim: vim-ruby
+    markaby: markaby
+    mongrel: mongrel
+    haml: haml hpricot
+    rails: rails
 
