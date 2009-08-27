@@ -17,7 +17,7 @@ class GemPackage
     DISTRIBUTIONS[distribution][:gem_install_path].gsub('+pkg_names+', file)
   end
   def self.install_package(package)
-    pkglist = PACKAGES["app"][package.to_s][distribution.to_s]
+    pkglist = PACKAGES["gem"][package.to_s]
     install_path pkglist
   end
 end
@@ -47,7 +47,7 @@ def distribution
 end
 
 def run(cmd)
-  puts "Wykonywanie: #{cmd}"
+  puts "\e[32mWykonywanie: \e[34m#{cmd}\e[0m"
   system cmd
 end
 
@@ -56,5 +56,10 @@ def home_path
 end
 
 def info(string)
-  puts "*** #{string} ***"
+  if not /WARNING/ =~ string
+    color = "\e[32m"
+  else
+    color = "\e[1;31m"
+  end
+  puts "*** #{color}#{string}\e[0m ***"
 end

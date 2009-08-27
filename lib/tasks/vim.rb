@@ -26,6 +26,6 @@ namespace :vim do
   end
   
   desc "Install ViM, plugins and config file"
-  task :all => [:install, "plugins:install", :copy_config]
+  task :all => [:install, "plugins:install", :copy_config, "gem:install"]
 end
 

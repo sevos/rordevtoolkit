@@ -12,12 +12,12 @@ PACKAGES["app"].each do |package, options|
   end
 end
 
-PACKAGES["gems"].each do |package, gems|
+PACKAGES["gem"].each do |package, gems|
   namespace package.to_sym do
     namespace :gem do
       desc "Install gem and related gems: #{package}"
       task :install do
-        puts gems
+        ginstall package.to_sym
       end
     end
   end
