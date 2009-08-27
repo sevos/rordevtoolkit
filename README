@@ -1,1 +1,15 @@
-Here will be description ;)
+Requirements:
+    Script requires ruby 1.8 and rake gem
+
+    For Fedora:
+        su -c "yum install ruby ruby-devel irb"
+        su -c "gem install rake"
+    For Ubuntu:
+        sudo apt-get install ruby ruby1.8-dev irb
+        sudo gem install rake
+
+Quick help:
+
+run:
+    rake -T
+to see available tasks
