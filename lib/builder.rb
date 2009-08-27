@@ -5,7 +5,7 @@ class SoftwarePackage
   @@distribution = nil
 
   def self.install(package)
-    puts "*** Instalowanie pakietu #{package.to_s} ***"
+    info "Instalowanie pakietu #{package.to_s}"
     run install_path(package)
   end
   
@@ -38,6 +38,14 @@ def distribution
 end
 
 def run(cmd)
+  puts "Wykonywanie: #{cmd}"
   system cmd
 end
 
+def home_path
+  `echo -n $HOME`
+end
+
+def info(string)
+  puts "*** #{string} ***"
+end
