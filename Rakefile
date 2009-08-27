@@ -55,4 +55,4 @@ namespace :gems do
 end
 
 
-task :default => ["vim:install", "ruby:install"]
+task :default => ["app:vim:all", "app:ruby:install"]
