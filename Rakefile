@@ -28,4 +28,3 @@ Dir['./lib/tasks/**/*.rb'].each  do |path|
   require "#{path}"
 end
 
-task :default => ["vim:all", "ruby:install"]

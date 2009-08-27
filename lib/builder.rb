@@ -20,6 +20,13 @@ class GemPackage
     pkglist = PACKAGES["gem"][package.to_s]
     install_path pkglist
   end
+  def installed?(gemname)
+    if `gem list | grep "#{gemname.to_s}"` == ""
+      false
+    else
+      true
+    end
+  end
 end
 
 def pinstall(package)
@@ -59,7 +66,7 @@ def info(string)
   if not /WARNING/ =~ string
     color = "\e[32m"
   else
-    color = "\e[1;31m"
+    color = "\e[31m"
   end
   puts "*** #{color}#{string}\e[0m ***"
 end
