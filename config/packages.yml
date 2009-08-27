@@ -1,0 +1,12 @@
+app:
+    vim:
+        desc:   ViM editor
+        ubuntu: vim-full
+        fedora: vim-enhanced vim-X11
+    ruby:
+        desc:   ruby interpreter
+        ubuntu: ruby rubygems irb
+        fedora: ruby rubygems irb
+gems:
+    capistrano: capistrano
+    cucumber: webrat cucumber
