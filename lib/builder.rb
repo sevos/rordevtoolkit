@@ -16,8 +16,7 @@ class SoftwarePackage
           options if check_type == :file_exists
         end
         dist if files_to_check.all? do |o|
-          cmd = "find \"#{o[:dir]}\" -name \"#{o[:name]}\""
-          @@distribution = dist unless `#{cmd}` == ""
+          @@distribution = dist if File.exists? o
         end
       end
     end
@@ -25,7 +24,7 @@ class SoftwarePackage
   end
 
   def self.install_path(package)
-    pkglist = PACKAGES["software"][package.to_s][distribution.to_s]
+    pkglist = PACKAGES["app"][package.to_s][distribution.to_s]
     DISTRIBUTIONS[self.distribution][:install_path].gsub('+pkg_names+', pkglist)
   end
 end
