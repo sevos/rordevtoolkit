@@ -7,6 +7,10 @@ app:
         desc:   Firebird super server
         ubuntu: firebird2.1-super firebird2.1-dev flamerobin
         fedora: firebird-superserver firebird-filesystem firebird-devel flamerobin
+    postgres:
+        desc:   PostgreSQL server
+        ubuntu: postgresql libpq-dev pgadmin3
+        fedora: postgresql postgresql-server postgresql-devel pgadmin3
 gem:
     capistrano: capistrano
     cucumber: webrat cucumber rspec rspec-rails ZenTest rcov
