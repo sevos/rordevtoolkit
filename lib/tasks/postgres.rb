@@ -24,12 +24,13 @@ namespace :postgres do
     puts "*** \e[1;31mNot implemented yet\e[0m ***"
   end
 
-  desc "Fedora: initialize cluster"
-  task :create_cluster do
-    if distribution == :fedora
-      puts "*** \e[1;31mNot implemented yet\e[0m ***"
-    else
-      puts "*** \e[1;31mTask intended only for Fedora\e[0m ***"
+
+  if distribution == :fedora
+    desc "Fedora: initialize cluster"
+    task :create_cluster do
+        puts "*** \e[1;31mNot implemented yet\e[0m ***"
     end
+#    after :installl, :create_cluster
   end
+
 end

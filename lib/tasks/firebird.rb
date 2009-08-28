@@ -12,7 +12,7 @@ namespace :firebird do
     task :gem_install => :build do
       info "Installing Fireruby"
       install_cmd = GemPackage.install_path Dir['/tmp/fb/fb*.gem'].first
-      run "cd /tmp/fb; #{install_cmd}"
+      surun "cd /tmp/fb; #{install_cmd}"
       run "rm -fr /tmp/fb"
     end
   end
@@ -28,7 +28,7 @@ namespace :firebird do
     task :gem_install => :build do
       info "Installing fb_adapter"
       install_cmd = GemPackage.install_path Dir['/tmp/fb_adapter/pkg/fb*.gem'].first
-      run "cd /tmp/fb_adapter; #{install_cmd}"
+      surun "cd /tmp/fb_adapter; #{install_cmd}"
       run "rm -fr /tmp/fb_adapter"
     end
   end
