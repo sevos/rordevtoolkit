@@ -1,0 +1,4 @@
+518c518
+< extern char *pg_encoding_to_char(int encoding);
+---
+> extern const char *pg_encoding_to_char(int encoding);

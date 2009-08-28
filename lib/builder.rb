@@ -60,13 +60,17 @@ def distribution
 end
 
 def run(cmd)
-  puts "\e[32mExecuting: \e[34m#{cmd}\e[0m"
-  system cmd
+  if cmd
+    puts "\e[32mExecuting: \e[34m#{cmd}\e[0m" 
+    system cmd  
+  end
 end
 
 def surun(cmd)
-  info DISTRIBUTIONS[distribution][:admin_notify] if DISTRIBUTIONS[distribution][:admin_notify]
-  run DISTRIBUTIONS[distribution][:admin_cmd].gsub('+cmd+', cmd)
+  if cmd
+    info DISTRIBUTIONS[distribution][:admin_notify] if DISTRIBUTIONS[distribution][:admin_notify]
+    run DISTRIBUTIONS[distribution][:admin_cmd].gsub('+cmd+', cmd)
+  end
 end
 
 def home_path
