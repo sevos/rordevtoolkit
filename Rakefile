@@ -14,12 +14,12 @@ end
 
 PACKAGES["gem"].each do |package, gems|
   namespace package.to_sym do
-    namespace :gem do
-      desc "Install gem and related gems: #{package}"
-      task :install do
-        ginstall package.to_sym
-      end
+    # namespace :gem do
+    desc "Install gem and related gems: #{package}"
+    task :gem_install do
+      ginstall package.to_sym
     end
+    # end
   end
 end
 
