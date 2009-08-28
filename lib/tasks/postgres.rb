@@ -18,12 +18,17 @@ namespace :postgres do
   end
 
 
+  all_tasks = [:install, :passwd, :enable_local_access]
+
   if distribution == :fedora
     desc "Fedora: initialize cluster"
     task :create_cluster do
         puts "*** \e[1;31mNot implemented yet\e[0m ***"
     end
-#    after :installl, :create_cluster
+    all_tasks.insert(2, :create_cluster)
   end
+
+    desc "Install and configure PostgreSQL server"
+    task :all => all_tasks
 
 end
