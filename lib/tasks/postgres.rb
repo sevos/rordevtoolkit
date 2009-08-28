@@ -37,7 +37,7 @@ namespace :postgres do
       info "Initializing database cluster"  
       surun "#{Dir["/etc/init.d/postgres*"].first} initdb"
     end
-    all_tasks.insert(2, :create_cluster)
+    all_tasks.insert(1, :create_cluster)
   end
 
 
