@@ -18,9 +18,10 @@ class GemPackage
   end
   def self.install_package(package)
     pkglist = PACKAGES["gem"][package.to_s]
-    install_path pkglist
+    pkglist = pkglist.split(' ').reject {|pkg| installed? pkg}.join(' ')
+    install_path pkglist unless pkglist.nil? or pkglist == ""
   end
-  def installed?(gemname)
+  def self.installed?(gemname)
     if `gem list | grep "#{gemname.to_s}"` == ""
       false
     else
@@ -30,13 +31,14 @@ class GemPackage
 end
 
 def pinstall(package)
-  info "Instalowanie pakietu #{package.to_s}"
+  info "Installing #{package.to_s}"
   run SoftwarePackage.install_package(package)
 end
 
 def ginstall(package)
-  info "Instalowanie gemu #{package.to_s}"
-  run GemPackage.install_package(package)
+  info "Installing gem #{package.to_s}"
+  path = GemPackage.install_package(package)
+  run path if path
 end
 
 def distribution
@@ -54,7 +56,7 @@ def distribution
 end
 
 def run(cmd)
-  puts "\e[32mWykonywanie: \e[34m#{cmd}\e[0m"
+  puts "\e[32mExecuting: \e[34m#{cmd}\e[0m"
   system cmd
 end
 
@@ -63,10 +65,10 @@ def home_path
 end
 
 def info(string)
-  if not /WARNING/ =~ string
-    color = "\e[32m"
+  if /WARNING/ =~ string
+    color = "\e[33m"
   else
-    color = "\e[31m"
+    color = "\e[32m"
   end
   puts "*** #{color}#{string}\e[0m ***"
 end
