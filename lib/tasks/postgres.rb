@@ -36,10 +36,14 @@ namespace :postgres do
 end
 
 def find_pg_hba_conf
-  cmd = "find /var /etc -name pg_hba.conf"
+  sufind("pg_hba.conf", ['/etc', '/var']).first
+end
+
+def sufind(file_pattern, dirs)
+  cmd = "find #{dirs.join(' ')} -name #{file_pattern}"
   cmd = DISTRIBUTIONS[distribution][:admin_cmd].gsub("+cmd+", cmd)
-  info "Searching pg_hba.conf"
+  info "Searching #{file_pattern}"
   info DISTRIBUTIONS[distribution][:admin_notify]
   result = `#{cmd}`
-  result.split("\n").first
+  result.split("\n")
 end
