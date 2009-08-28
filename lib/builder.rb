@@ -1,3 +1,4 @@
+require "yaml"
 require 'config/distributions.rb'
 PACKAGES = YAML.load_file('config/packages.yml')
 @@distribution = nil
@@ -38,7 +39,6 @@ end
 def ginstall(package)
   info "Installing gem #{package.to_s}"
   path = GemPackage.install_package(package)
-  run path if path
 end
 
 def distribution
