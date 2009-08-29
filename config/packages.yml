@@ -19,5 +19,5 @@ gem:
     mongrel: mongrel
     haml: haml hpricot
     rails: rails
-    postgres: ruby-postgres postgres
+    postgres: ruby-pg postgres
 

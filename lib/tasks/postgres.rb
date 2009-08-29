@@ -1,7 +1,7 @@
 
 namespace :postgres do
   
-  all_tasks = [:install, :passwd, :repair_sources, :enable_local_access, :gem_install]
+  all_tasks = [:install, :passwd, :enable_local_access, :gem_install]
   
   desc "Pre-Configure PostgreSQL server"
   task :passwd do
@@ -27,13 +27,13 @@ namespace :postgres do
     server("restart")
   end
 
-  desc "Apply patch to postgresql client sources"
-  task :repair_sources do
-    sufind("libpq-fe.h", ["/usr/include"]).each do |file_path|
-      info "Patching #{file_path}"
-      surun "patch -Ns #{file_path} files/postgres/libpq-fe.h.patch"  
-    end
-  end
+  # desc "Apply patch to postgresql client sources"
+  # task :repair_sources do
+  #   sufind("libpq-fe.h", ["/usr/include"]).each do |file_path|
+  #     info "Patching #{file_path}"
+  #     surun "patch -Ns #{file_path} files/postgres/libpq-fe.h.patch"  
+  #   end
+  # end
 
   
 
