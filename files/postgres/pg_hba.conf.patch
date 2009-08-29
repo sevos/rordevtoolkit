@@ -1,0 +1,5 @@
+79c79
+< local   all         all                               ident sameuser
+---
+> local   all         all                               md5
+
