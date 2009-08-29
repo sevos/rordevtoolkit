@@ -1,3 +1,4 @@
+
 namespace :postgres do
   
   all_tasks = [:install, :passwd, :repair_sources, :enable_local_access, :gem_install]
@@ -11,14 +12,19 @@ namespace :postgres do
     info "and then set postgres user password"
     info "it should be strong password"
     info "(postgres user has administrative privileges)"
-    info "After that type exit"
+    info "After that press Ctrl+D"
+    server("restart")
     surun "su -l postgres -c psql postgres"
+    server("restart")
   end
 
   desc "Enable local user access"
   task :enable_local_access do
-    puts "*** \e[1;31mYou need to manually edit #{find_pg_hba_conf}\e[0m ***"
-    puts "*** \e[1;31mEnabling local access is not implemented yet\e[0m ***"
+    file_path = find_pg_hba_conf
+    info "Patching #{file_path}"
+    surun "patch -Ns #{file_path} files/postgres/pg_hba.conf.patch"  
+    surun "chown postgres:postgres #{file_path}"
+    server("restart")
   end
 
   desc "Apply patch to postgresql client sources"
@@ -36,7 +42,7 @@ namespace :postgres do
     desc "Fedora: initialize cluster"
     task :create_cluster do
       info "Initializing database cluster"  
-      surun "#{Dir["/etc/init.d/postgres*"].first} initdb"
+      server("initdb")
     end
     all_tasks.insert(1, :create_cluster)
   end
@@ -49,5 +55,13 @@ end
 
 def find_pg_hba_conf
   sufind("pg_hba.conf", ['/etc', '/var']).first
+end
+
+@@pgrunscript = nil
+def server(cmd)
+  @@pgrunscript ||= sufind("*postgre*", ["/etc/init.d/"]).first
+  unless @@pgrunscript.nil?
+    surun "#{@@pgrunscript} #{cmd}"
+  end
 end
 
