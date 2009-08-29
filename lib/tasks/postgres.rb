@@ -7,10 +7,11 @@ namespace :postgres do
     
     info "When you see"
     info "postgres=# prompt type:"
-    info "\\passwd postgres"
+    info "\\password postgres"
     info "and then set postgres user password"
     info "it should be strong password"
     info "(postgres user has administrative privileges)"
+    info "After that type exit"
     surun "su -l postgres -c psql postgres"
   end
 

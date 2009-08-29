@@ -1,8 +1,8 @@
 app:
     vim:
         desc:   ViM editor
-        ubuntu: vim-full vim-gtk
-        fedora: vim-enhanced vim-X11
+        ubuntu: vim-full vim-gtk ctags
+        fedora: vim-enhanced vim-X11 ctags
     firebird:
         desc:   Firebird super server
         ubuntu: firebird2.1-super firebird2.1-dev flamerobin
