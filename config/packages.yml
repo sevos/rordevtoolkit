@@ -1,7 +1,7 @@
 app:
     vim:
         desc:   ViM editor
-        ubuntu: vim-full
+        ubuntu: vim-full vim-gtk
         fedora: vim-enhanced vim-X11
     firebird:
         desc:   Firebird super server
