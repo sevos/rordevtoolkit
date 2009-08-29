@@ -176,6 +176,8 @@ else
 endif
 
 nmap <silent> <Leader>p :NERDTreeToggle<CR>
+nmap <silent> <c-p> :NERDTreeToggle<CR>
+
 nmap <C-A> ysiw
 
 "make <c-l> clear the highlight as well as redraw
@@ -184,7 +186,7 @@ inoremap <C-L> <C-O>:nohls<CR>
 
 
 "map to bufexplorer
-nnoremap <C-B> :BufExplorer<cr>
+nnoremap <C-Space> :BufExplorer<cr>
 
 "map to fuzzy finder text mate stylez
 map <c-t> :Rcd<CR>:FuzzyFinderFile \*\*/<CR>

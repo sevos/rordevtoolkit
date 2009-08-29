@@ -32,10 +32,20 @@ namespace :firebird do
       run "rm -fr /tmp/fb_adapter"
     end
   end
-  # end
+  
+  if distribution == :ubuntu
+    desc "dpkg-reconfigure firebird2.1-super"
+    task :dpkg_reconfigure do
+      surun "dpkg-reconfigure firebird2.1-super"
+    end
+  end
+
+  all_tasks = ["install", "fireruby:gem_install", "fb_adapter:gem_install"]  
+
+  all_tasks.insert(1, :dpkg_reconfigure) if distribution == :ubuntu
 
   desc "Install firebird-superserver and RoR adapters"
-  task :all => ["install", "fireruby:gem_install", "fb_adapter:gem_install"]
+  task :all => all_tasks
 end
    
    
