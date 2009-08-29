@@ -12,7 +12,7 @@ DISTRIBUTIONS = {
     :check => {
       :file_exists => "/usr/bin/apt-get" 
     },
-    :install_path => 'apt-get install +pkg_names+',
+    :install_path => 'apt-get -y install +pkg_names+',
     :gem_install_path => 'gem install +pkg_names+',
     :admin_notify => "Sometimes you need enter your user password here",
     :admin_cmd => 'sudo /bin/sh -c "+cmd+"'
