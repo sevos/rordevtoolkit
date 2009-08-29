@@ -187,9 +187,9 @@ inoremap <C-L> <C-O>:nohls<CR>
 nnoremap <C-B> :BufExplorer<cr>
 
 "map to fuzzy finder text mate stylez
-map <silent><F5> :Rcd<CR>:FuzzyFinderFile \*\*/<CR>
 map <c-t> :Rcd<CR>:FuzzyFinderFile \*\*/<CR>
-map <silent><c-F5> :FuzzyFinderFile \*\*/<CR>
+map <C-T> :FuzzyFinderFile \*\*/<CR>
+map <C-Return> :FuzzyFinderFile \*\*/<CR>
 
 "map Q to something useful
 noremap Q gq
