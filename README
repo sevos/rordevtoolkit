@@ -5,8 +5,7 @@ Requirements:
         su -c "yum install ruby ruby-devel irb"
         su -c "gem install rake"
     For Ubuntu:
-        sudo apt-get install ruby ruby1.8-dev irb
-        sudo gem install rake
+        sh ubuntu.sh
 
 Quick help:
 
