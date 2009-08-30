@@ -11,6 +11,14 @@ app:
         desc:   PostgreSQL server
         ubuntu: postgresql libpq-dev pgadmin3
         fedora: postgresql postgresql-server postgresql-devel pgadmin3
+    libxml2:
+        desc:   XML2 library - required by Cucumber
+        ubuntu: libxml2 libxml2-dev
+        fedora: libxml2 libxml2-devel
+    libxslt1:   
+        desc:   XSLT library - required by Cucumber
+        ubuntu: libxslt1.1 libxslt1-dev
+        fedora: libxslt libxslt-devel
 gem:
     capistrano: capistrano
     cucumber: webrat cucumber rspec rspec-rails ZenTest rcov

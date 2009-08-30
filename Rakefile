@@ -28,3 +28,8 @@ Dir['./lib/tasks/**/*.rb'].each  do |path|
   require "#{path}"
 end
 
+desc "List :all meta-tasks"
+task :list do
+  info "List of meta-tasks"
+  run "rake -T | grep -e \"\\:all.*\\#\""
+end

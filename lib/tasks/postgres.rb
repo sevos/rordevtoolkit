@@ -8,11 +8,11 @@ namespace :postgres do
     
     info "When you see"
     info "postgres=# prompt type:"
-    info "\\password postgres"
+    info "\e[1;31m\\password\e[33m"
     info "and then set postgres user password"
     info "it should be strong password"
     info "(postgres user has administrative privileges)"
-    info "After that press Ctrl+D"
+    info "After that type \e[1;31m\\q\e[33m"
     server("restart")
     surun "su -l postgres -c psql postgres"
     server("restart")

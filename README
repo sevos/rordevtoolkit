@@ -9,6 +9,9 @@ Requirements:
 
 Quick help:
 
-run:
+run: 
+    rake list
+to see all meta-tasks
+or just run:
     rake -T
-to see available tasks
+to see all available tasks
