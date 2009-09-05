@@ -32,4 +32,7 @@ desc "List :all meta-tasks"
 task :list do
   info "List of meta-tasks"
   run "rake -T | grep -e \"\\:all.*\\#\""
+
+  info "List of metapackages all-in-one"
+  run "rake -T | grep -e \"\\devel.*\\#\""
 end
