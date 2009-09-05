@@ -28,4 +28,5 @@ gem:
     haml: haml hpricot
     rails: rails
     postgres: ruby-pg pg postgres
+    ruby_debud: ruby-debug
 
