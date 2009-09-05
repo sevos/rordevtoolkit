@@ -17,12 +17,12 @@ namespace :vim do
   desc "Install default config into home directory"
   task :copy_config do
     info "Installing ViM configuration file"
-    if File.exists? "#{home_path}/.gvimrc"
-      info "WARNING: #{home_path}/.vimrcg file exists, making backup in #{home_path}/.gvimrc.bak"
-      run "rm -fr #{home_path}/.gvimrc.bak" if File.exists? "#{home_path}/.gvimrc.bak"
-      run "mv #{home_path}/.gvimrc #{home_path}/.gvimrc.bak"
+    if File.exists? "#{home_path}/.vimrc"
+      info "WARNING: #{home_path}/.vimrcg file exists, making backup in #{home_path}/.vimrc.bak"
+      run "rm -fr #{home_path}/.vimrc.bak" if File.exists? "#{home_path}/.vimrc.bak"
+      run "mv #{home_path}/.vimrc #{home_path}/.vimrc.bak"
     end
-    run "cp -r files/vim/vimrc #{home_path}/.gvimrc"
+    run "cp -r files/vim/vimrc #{home_path}/.vimrc"
   end
   
   desc "Install ViM, plugins and config file"
