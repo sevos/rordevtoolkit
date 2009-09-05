@@ -9,7 +9,7 @@ app:
         fedora: firebird-superserver firebird-filesystem firebird-devel flamerobin
     postgres:
         desc:   PostgreSQL server
-        ubuntu: postgresql libpq-dev pgadmin3
+        ubuntu: postgresql libpq-dev libpostgresql-ocaml-dev pgadmin3 
         fedora: postgresql postgresql-server postgresql-devel pgadmin3
     libxml2:
         desc:   XML2 library - required by Cucumber
