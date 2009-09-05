@@ -192,6 +192,7 @@ nnoremap <C-Space> :BufExplorer<cr>
 map <c-t> :Rcd<CR>:FuzzyFinderFile \*\*/<CR>
 map <C-T> :FuzzyFinderFile \*\*/<CR>
 map <C-Return> :FuzzyFinderFile \*\*/<CR>
+map <Leader>[ :FuzzyFinderFile \*\*/<CR>
 
 "map Q to something useful
 noremap Q gq
