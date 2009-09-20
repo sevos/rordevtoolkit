@@ -29,4 +29,3 @@ gem:
     rails: rails
     postgres: ruby-pg pg postgres
     ruby_debug: ruby-debug
-
