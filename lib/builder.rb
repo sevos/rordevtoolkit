@@ -5,6 +5,7 @@ PACKAGES = YAML.load_file('config/packages.yml')
 
 class SoftwarePackage
   def self.install_path(file)
+    file ||= ""
     DISTRIBUTIONS[distribution][:install_path].gsub('+pkg_names+', file)
   end
   def self.install_package_path(package)
