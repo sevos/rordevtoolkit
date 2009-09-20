@@ -10,7 +10,7 @@ namespace :jruby do
   desc "Install jRuby"
   task :install do
     if File.exists? "/tmp/#{TARBALL}"    
-      surun "tar xf /tmp/#{TARBALL} -C /opt/jruby"
+      surun "tar xf /tmp/#{TARBALL} -C /opt"
       surun "ln -s /opt/jruby-1.3.1 /opt/jruby"
       surun "echo 'export PATH=\\$PATH:/opt/jruby/bin' >> /root/.bash_profile"
       run "echo 'export PATH=\\$PATH:/opt/jruby/bin' >> ~/.bash_profile"
