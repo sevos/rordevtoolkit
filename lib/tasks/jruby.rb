@@ -8,7 +8,7 @@ namespace :jruby do
   end
 
   desc "Install jRuby"
-  task :install do
+  task :install => "sun_jre:install" do
     if File.exists? "/tmp/#{TARBALL}"    
       surun "tar xf /tmp/#{TARBALL} -C /opt"
       surun "ln -s /opt/jruby-1.3.1 /opt/jruby"

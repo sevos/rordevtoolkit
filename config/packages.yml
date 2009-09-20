@@ -19,6 +19,10 @@ app:
         desc:   XSLT library - required by Cucumber
         ubuntu: libxslt1.1 libxslt1-dev
         fedora: libxslt libxslt-devel
+    sun_jre:
+        desc: Sun Java Runtime Environment 6
+        ubuntu: sun-java6-jre
+        fedora:
 gem:
     capistrano: capistrano
     cucumber: webrat cucumber rspec rspec-rails ZenTest rcov
