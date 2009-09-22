@@ -8,11 +8,10 @@ namespace :meta do
       info "* Cucumber"
       info "* Culerity"
       info "* Webrat"
-      info "* "
-      # info "* "
-      # info "* "
-      # info "* "
       # info "* "
     end
+
+    desc "Install testing studio metapackage"
+    task :install => ["jruby:all", "celerity:gem_install", "cucumber:all", "culerity:gem_install"]
   end
 end
