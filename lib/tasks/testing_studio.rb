@@ -8,6 +8,8 @@ namespace :meta do
       info "* Cucumber"
       info "* Culerity"
       info "* Webrat"
+      info "* RSpec & RSpec-RAILS ZenTest"
+      info "* RCov"
       # info "* "
     end
 
