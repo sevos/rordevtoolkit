@@ -14,6 +14,7 @@ namespace :rubygems do
   desc "Update rubygems"
   task :update do
     surun 'gem update —system'
+    surun 'gem install rake'
   end
   
 
