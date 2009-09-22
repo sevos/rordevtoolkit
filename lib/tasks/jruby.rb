@@ -12,8 +12,7 @@ namespace :jruby do
     if File.exists? "/tmp/#{TARBALL}"    
       surun "tar xf /tmp/#{TARBALL} -C /opt"
       surun "ln -s /opt/jruby-1.3.1 /opt/jruby"
-      surun "echo 'export PATH=\\$PATH:/opt/jruby/bin' >> /root/.bash_profile"
-      run "echo 'export PATH=$PATH:/opt/jruby/bin' >> ~/.bash_profile"
+      surun "ln -s /opt/jruby/bin/jruby /usr/bin/jruby"
     else
       raise "Download tarball using jruby:download task first!"
     end
