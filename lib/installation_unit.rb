@@ -29,6 +29,7 @@ class InstallationUnit
   def install
     puts "\e[34m** Installing #{name}\e[0m"
     @steps.each { |s| s.execute }
+    puts "\e[34m** DONE #{name}\e[0m"
   end
 
   def plan
@@ -38,12 +39,13 @@ class InstallationUnit
     end
   end
 
+  
   def step(description, supported = @supported_distributions, &block)
     if supported.include?(distribution) || supported.nil? || supported.empty?
       @steps << InstallationStep.new(description, self, &block)
     end
   end
-  
+
   def supported?
     return (@supported_distributions.include?(distribution) \
             or @supported_distributions.empty?)
@@ -52,4 +54,9 @@ end
 
 def installation_unit(*args, &block)
   InstallationUnit.new *(args), &block 
+end
+
+
+Dir['./lib/installation_steps/*.rb'].each  do |path|
+  require "#{path}"
 end
