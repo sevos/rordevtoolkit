@@ -1,10 +1,4 @@
 
-installation_unit "test2" do |i|
-  i.step "Some things to do" do
-    puts "Test!!!"
-  end
-end
-
 installation_unit "test", :type => :meta, 
 :description => "Testing module" do |i|
  
@@ -15,5 +9,11 @@ installation_unit "test", :type => :meta,
   i.install_gem "rake"
   i.install_jgem "celerity"
 
+end
+
+installation_unit "test2" do |i|
+  i.step "Some things to do" do
+    puts "Test!!!"
+  end
 end
 

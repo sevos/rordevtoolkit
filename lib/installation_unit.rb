@@ -4,9 +4,6 @@ require 'lib/installation_step'
 @@INSTALLATION_UNITS = {
   :module  => {},
   :meta    => {},
-  :program => {},
-  :gem     => {},
-  :jgem    => {}
 }
 
 class InstallationUnit
