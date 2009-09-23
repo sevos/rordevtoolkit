@@ -78,14 +78,6 @@ def home_path
   `echo -n $HOME`
 end
 
-def info(string)
-  if /WARNING/ =~ string
-    color = "\e[33m"
-  else
-    color = "\e[32m"
-  end
-  puts "*** #{color}#{string}\e[0m ***"
-end
 
 def sufind(file_pattern, dirs)
   cmd = "find #{dirs.join(' ')} -name #{file_pattern}"
@@ -96,3 +88,19 @@ def sufind(file_pattern, dirs)
   result.split("\n")
 end
 
+
+class String
+  def blank?
+    if self.to_s == "" 
+      return true
+    else
+      return false
+    end
+  end
+end
+
+class NilClass
+  def blank?
+    return true
+  end
+end
