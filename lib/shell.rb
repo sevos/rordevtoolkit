@@ -8,7 +8,7 @@ module Shell
   end
 
   def run(cmd)
-    system cmd
+    Kernel.system(cmd)
   end
 
   def surun(cmd)

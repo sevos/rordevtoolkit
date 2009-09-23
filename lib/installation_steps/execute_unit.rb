@@ -17,7 +17,7 @@ class ExecuteUnitInstallationStep < InstallationStep
   def description
     unit = @@INSTALLATION_UNITS[@unit_type][@unit_name]
     if unit.nil?
-      plan = "\e[31m** Cannot find unit: #{name} (#{type})\e[0m"
+      plan = "\e[31m** Cannot find unit: #{@unit_name} (#{@unit_type})\e[0m"
     else
       plan = unit.plan
     end
