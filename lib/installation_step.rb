@@ -15,7 +15,6 @@ class InstallationStep
         yield self, @unit
       end
     end
-
   end
 
   def warning(message)

@@ -33,10 +33,13 @@ class InstallationUnit
   end
 
   def plan
-    puts "\e[34m** Plan of #{@type}:#{name}:install\e[0m"
-    @steps.each do |step|
-      puts " - #{step.description}"
-    end
+    p = ""
+      p += "\e[34m** Plan of #{@type}:#{name}:install\e[0m"
+      @steps.each do |step|
+        p += "\n - #{step.description}"
+      end
+      p += "\n\e[34m** End of plan of #{@type}:#{name}:install\e[0m"
+    p
   end
 
   

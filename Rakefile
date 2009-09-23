@@ -23,7 +23,7 @@ end
         
         desc "Plan of #{type}:#{name}:install"
         task :plan do
-          unit.plan
+          puts unit.plan
         end
       end
     end

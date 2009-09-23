@@ -1,8 +1,14 @@
 class ExecuteUnitInstallationStep < InstallationStep
 
   def initialize(name, type = :module)
-
-    super("Execute unit -> #{type}:#{name}:install\n   in order to see what it will do run:\n     rake #{type}:#{name}:plan", nil) do |s, u|
+    
+    unit = @@INSTALLATION_UNITS[type.to_sym][name]
+    if unit.nil?
+      plan = "\e[31m** Cannot find unit: #{name} (#{type})\e[0m"
+    else
+      plan = unit.plan
+    end
+    super("Execute unit -> #{type}:#{name}:install\n#{plan}", nil) do |s, u|
       unit = @@INSTALLATION_UNITS[type.to_sym][name]
       unless unit.nil?
         unit.install
