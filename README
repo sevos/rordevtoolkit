@@ -1,17 +1,82 @@
-Requirements:
-    Script requires ruby 1.8 and rake gem
+RoRDevToolkit is a set of scripts dedicated to administrators, 
+developers and testers. It makes preparing workstation easy.
+Using few commands you can run script, which install everything
+you need for writing applications in Ruby and Rails.
+--------------------------------------------------------------------------------
+    INDEX:
 
+    1. LICENSE
+    2. SUPPORTED DISTRIBUTIONS
+    3. REQUIREMENTS
+    4. QUICK START
+    5. CUSTOM RECIPES
+
+--------------------------------------------------------------------------------
+    1. LICENSE
+--------------------------------------------------------------------------------
+@TODO 
+--------------------------------------------------------------------------------
+    2. SUPPORTED DISTRIBUTIONS
+--------------------------------------------------------------------------------
+Standard recipes are written for Ubuntu and Fedora, but only Ubuntu recipes are 
+completly tested on fresh Ubuntu 9.04 Desktop installation. 
+RoRDevToolkit tries to detect your current distribution by finding distribution-
+specific files such as "apt-get" or "yum". However, mechanism is not perfect, so
+use it carefully. 
+Depending on your current distribution it can switch on/off some tasks/steps.
+
+Detecting module relays on config/distributions.rb file and sets current 
+distribution value to one of keys coming from the hash in that file.
+--------------------------------------------------------------------------------
+    3. REQUIREMENTS
+--------------------------------------------------------------------------------
+First of all you need Ubuntu 9.04 or Fedora 11 (completly not tested on other
+ditributions). There is something you need to do before you start using the 
+tool:
     For Fedora:
-        su -c "yum install ruby ruby-devel irb"
-        su -c "gem install rake"
+      $  su -c "yum install ruby ruby-devel irb"
+      $  su -c "gem install rake"
+      $  ./rdt module:rubygems:install
+
     For Ubuntu:
-        sh ubuntu.sh
+      $  ./ubuntu.sh
 
-Quick help:
+These commands will install ruby interpreter and update rubygems. 
+--------------------------------------------------------------------------------
+    4. QUICK START
+--------------------------------------------------------------------------------
+Standard recipes allow to prepare a developer's desktop on your system.
 
-run: 
-    rake list
-to see all meta-tasks
-or just run:
-    rake -T
-to see all available tasks
+There are two metapackages (bind many modules into one command):
+
+    devel_studio:
+        It install and configure common gems (like rails, mongrel or haml), 
+        database server (postgresql) and GViM configured to work with rails.
+
+    testing_studio:
+        Installs testing environment: Celerity on JRuby (downloads and installs
+        JRuby distribution), Cucumber, RSpec, Culerity.
+
+To see all recipes just run:
+    $ ./rdt -T
+
+There are few recipes not included in metagems.
+
+In addition application supports --no-ri and --no-rdoc flags. You can pass them
+to rdt wrapper in order to force skipping generating documentation files for
+all gems installed by running task, i.e.:
+    $ ./rdt module:firebird:install --no-ri --no-rdoc
+
+--------------------------------------------------------------------------------
+    5. CUSTOM RECIPES
+--------------------------------------------------------------------------------
+RoRDevToolkit looks for recipes in modules/**/*.rb recursively. Files should be 
+written in ruby and have "rb" extension.
+There is no limitation for supported distributions. 
+In order to add support for certain distributions you need to go to 
+config/distributions.rb file and add list of files describing your distribution.
+In other way: If all files listed for some distribution will be present 
+in the system it will be that distribution.
+
+You can feel free to write own recipes. Built-in recipes can be threated 
+as examples. Some documentation coming soon.
