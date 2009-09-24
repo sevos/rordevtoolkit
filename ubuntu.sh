@@ -7,8 +7,8 @@ sudo apt-get -y install ruby ruby-dev rubygems irb libopenssl-ruby
 sudo gem install rake
 echo "export PATH=/var/lib/gems/1.8/bin:\$PATH" >> ~/.bashrc
 export PATH=/var/lib/gems/1.8/bin:$PATH
-echo "*** Updating rubygems ***"
-rake rubygems:all
-echo "*** Common tasks ***"
-rake -T | grep -e "\:all"
+echo "** Updating rubygems"
+rake module:rubygems:install
+echo "** Tasks"
+rake -T | grep -e "\:install.*\#"
 echo "Enter\n    rake -T\nfor details"
