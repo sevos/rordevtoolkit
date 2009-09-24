@@ -1,0 +1,4 @@
+#!/bin/sh
+
+export RDT_OPTS=`echo $@ | cut -d " " -f 2-`
+rake $1
