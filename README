@@ -1,7 +1,7 @@
 RoRDevToolkit is a set of scripts dedicated to administrators, 
 developers and testers. It makes preparing workstation easy.
-Using few commands you can run script, which install everything
-you need for writing applications in Ruby and Rails.
+Using few commands you can run script, which will automatically install 
+everything you need for writing applications in Ruby and Rails.
 --------------------------------------------------------------------------------
     INDEX:
 
