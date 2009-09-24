@@ -1,35 +1,20 @@
-app:
-    vim:
-        desc:   ViM editor
-        ubuntu: vim-full vim-gtk ctags
-        fedora: vim-enhanced vim-X11 ctags
-    firebird:
-        desc:   Firebird super server
-        ubuntu: firebird2.1-super firebird2.1-dev flamerobin
-        fedora: firebird-superserver firebird-filesystem firebird-devel flamerobin
-    postgres:
-        desc:   PostgreSQL server
-        ubuntu: postgresql libpq-dev libpostgresql-ocaml-dev pgadmin3 
-        fedora: postgresql postgresql-server postgresql-devel pgadmin3
-    libxml2:
-        desc:   XML2 library - required by Cucumber
-        ubuntu: libxml2 libxml2-dev
-        fedora: libxml2 libxml2-devel
-    libxslt1:   
-        desc:   XSLT library - required by Cucumber
-        ubuntu: libxslt1.1 libxslt1-dev
-        fedora: libxslt libxslt-devel
-    sun_jre:
-        desc: Sun Java Runtime Environment 6
-        ubuntu: sun-java6-jre
-        fedora:
-gem:
-    capistrano: capistrano
-    cucumber: webrat cucumber rspec rspec-rails ZenTest rcov
-    vim: vim-ruby
-    markaby: markaby
-    mongrel: mongrel
-    haml: haml hpricot
-    rails: rails
-    postgres: ruby-pg pg postgres
-    ruby_debug: ruby-debug
+vim:
+    desc:   ViM editor
+    ubuntu: vim-full vim-gtk ctags
+    fedora: vim-enhanced vim-X11 ctags
+firebird:
+    desc:   Firebird super server
+    ubuntu: firebird2.1-super firebird2.1-dev flamerobin
+    fedora: firebird-superserver firebird-filesystem firebird-devel flamerobin
+postgres:
+    desc:   PostgreSQL server
+    ubuntu: postgresql libpq-dev libpostgresql-ocaml-dev pgadmin3 
+    fedora: postgresql postgresql-server postgresql-devel pgadmin3
+libxml2:
+    desc:   XML2 library - required by Cucumber
+    ubuntu: libxml2 libxml2-dev
+    fedora: libxml2 libxml2-devel
+libxslt1:   
+    desc:   XSLT library - required by Cucumber
+    ubuntu: libxslt1.1 libxslt1-dev
+    fedora: libxslt libxslt-devel
