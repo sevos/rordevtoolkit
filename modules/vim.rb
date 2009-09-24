@@ -17,11 +17,18 @@ installation_unit "vim-configuration", :description => "Install configuration fo
       s.run "mv #{home_path}/.vimrc #{home_path}/.vimrc.bak"
     end
   end
-  i.step "Unpack plugins" do |s,i|
-    s.run "tar xf files/vim/vimfiles.tar.gz -C #{home_path}"
-    s.mv "#{home_path}/vimfiles", "#{home_path}/.vim"
+
+  i.step "Download newest akitaonrails/vimfiles" do |s,i|
+    s.run "cd /tmp; git clone git://github.com/akitaonrails/vimfiles.git"
   end
-  i.step "Copy config file" do |s,i|
+
+  i.step "Download submodules of akitaonrails/vimfiles" do |s,i|
+    s.run "cd /tmp/vimfiles; git submodule init"
+    s.run "cd /tmp/vimfiles; git submodule update"
+  end
+
+  i.step "Install configuration in home directory" do |s,i|
+    s.mv "/tmp/vimfiles", "#{home_path}/.vim"
     s.cp "files/vim/vimrc", "#{home_path}/.vimrc"
   end
 end
