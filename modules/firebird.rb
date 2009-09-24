@@ -2,6 +2,7 @@ installation_unit "firebird", :description => "Firebird server and Ruby&Rails ad
   i.execute_unit "firebird-server"
   i.execute_unit "fireruby"
   i.execute_unit "fb_adapter"
+  i.install_system_package "flamerobin"
 end
 
 installation_unit "firebird-server", :type => :module do |i|

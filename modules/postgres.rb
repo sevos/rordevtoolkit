@@ -1,5 +1,11 @@
 installation_unit "postgres",
-:description => "Install PostgreSQL server, PGAdmin3 and Ruby&Rails adapters" do |i|
+:description => "Instal PostgreSQL server and PGAdmin3" do |i|
+  i.execute_unit "postgresql-server"
+  i.install_system_package "pgadmin3"
+end
+
+installation_unit "postgresql-server",
+:description => "Install PostgreSQL server and Ruby&Rails adapters" do |i|
   i.install_system_package "postgres"
   i.step "First start PostgreSQL server", :supported => :fedora do |s,i|
     s.surun "service postgresql initdb"
