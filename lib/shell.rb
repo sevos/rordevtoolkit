@@ -21,9 +21,56 @@ module Shell
 
   
   def sufind(file_pattern, dirs)
-    cmd = "find #{dirs.join(' ')} -name #{file_pattern}"
+    cmd = "find #{[dirs].join(' ')} -name #{file_pattern}"
     result = surun(cmd, true)
     result.split("\n")
   end
+  
+  def pause
+    run "sh -c 'read'" 
+  end
 
+  def ln(from, to, opts = {})
+    cmd = "ln -s '#{from}' '#{to}'"
+    if opts[:root]
+      surun cmd
+    else
+      run cmd
+    end
+  end
+  
+  def rm(path, opts = {})
+    if opts[:recursive]
+      cmd = "rm -fr #{path}"
+    else
+      cmd = "rm -f #{path}"
+    end
+    if opts[:root]
+      surun cmd
+    else
+      run cmd
+    end
+  end
+  
+  def cp(from, to, opts = {})
+    if opts[:recursive]
+      cmd = "cp -r #{opts[:options]} #{from} #{to}"
+    else
+      cmd = "cp #{opts[:options]} #{from} #{to}"
+    end
+    if opts[:root]
+      surun cmd
+    else
+      run cmd
+    end
+  end
+  
+  def mv(from, to, opts = {})
+    cmd = "mv #{opts[:options]} #{from} #{to}"
+    if opts[:root]
+      surun cmd
+    else
+      run cmd
+    end
+  end
 end
