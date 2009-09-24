@@ -38,3 +38,10 @@ class NilClass
     return true
   end
 end
+def rdt_options
+  @@rdt_opts = ENV["RDT_OPTS"].split(' ')
+  def rdt_options
+    @@rdt_opts
+  end
+  @@rdt_opts
+end
