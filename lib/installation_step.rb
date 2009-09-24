@@ -12,7 +12,7 @@ class InstallationStep
     class << self
       define_method :execute do
         info "#{@description.split("\n").first}"
-        yield self, @unit
+        return yield self, @unit
       end
     end
   end

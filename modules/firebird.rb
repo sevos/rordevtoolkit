@@ -9,6 +9,13 @@ installation_unit "firebird-server", :type => :module do |i|
   i.step "Configure Firebird", :supported => :ubuntu do |s,i|
     s.surun "dpkg-reconfigure firebird2.1-super"
   end
+  i.step "Show access information", :supported => :fedora do |s,i|
+    s.info "Access information to your server"
+    s.info "  host:     localhsot"
+    s.info "  port:     3050"
+    s.info "  username: SYSDBA"
+    s.info "  password: masterkey"
+  end
 end
 
 installation_unit "fireruby", 

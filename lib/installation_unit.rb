@@ -40,8 +40,9 @@ class InstallationUnit
   end
 
   
-  def step(description, supported = @supported_distributions, &block)
-    if supported.include?(distribution) || supported.nil? || supported.empty?
+  def step(description, opts = {}, &block)
+    supported = opts[:supported] || @upported_distributions
+    if [supported].include?(distribution) || supported.nil? || [supported].empty?
       @steps << InstallationStep.new(description, self, &block)
     end
   end

@@ -7,12 +7,23 @@ module Shell
     }
   end
 
-  def run(cmd)
-    Kernel.system(cmd)
+  def run(cmd, catch_out = false)
+    if catch_out
+      return `#{cmd}`
+    else
+      Kernel.system(cmd)
+    end
   end
 
-  def surun(cmd)
-    return run(shell_su_commands[distribution].gsub('+cmd+',cmd))
+  def surun(cmd, catch_out = false)
+    return run(shell_su_commands[distribution].gsub('+cmd+',cmd), catch_out)
+  end
+
+  
+  def sufind(file_pattern, dirs)
+    cmd = "find #{dirs.join(' ')} -name #{file_pattern}"
+    result = surun(cmd, true)
+    result.split("\n")
   end
 
 end

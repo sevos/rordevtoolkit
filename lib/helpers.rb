@@ -79,14 +79,6 @@ def home_path
 end
 
 
-def sufind(file_pattern, dirs)
-  cmd = "find #{dirs.join(' ')} -name #{file_pattern}"
-  cmd = DISTRIBUTIONS[distribution][:admin_cmd].gsub("+cmd+", cmd)
-  info "Searching #{file_pattern}"
-  info DISTRIBUTIONS[distribution][:admin_notify]
-  result = `#{cmd}`
-  result.split("\n")
-end
 
 
 class String
