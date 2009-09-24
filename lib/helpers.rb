@@ -39,7 +39,7 @@ class NilClass
   end
 end
 def rdt_options
-  @@rdt_opts = ENV["RDT_OPTS"].split(' ')
+  @@rdt_opts = ENV["RDT_OPTS"].split(' ') rescue []
   def rdt_options
     @@rdt_opts
   end
