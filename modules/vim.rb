@@ -12,13 +12,14 @@ installation_unit "vim-configuration", :description => "Install configuration fo
       s.run "mv #{home_path}/.vim #{home_path}/.vim.bak"
     end
     if File.exists? "#{home_path}/.vimrc"
-      s.warning "WARNING: #{home_path}/.vimrcg file exists, making backup in #{home_path}/.vimrc.bak"
+      s.warning "WARNING: #{home_path}/.vimrc file exists, making backup in #{home_path}/.vimrc.bak"
       s.run "rm -fr #{home_path}/.vimrc.bak" if File.exists? "#{home_path}/.vimrc.bak"
       s.run "mv #{home_path}/.vimrc #{home_path}/.vimrc.bak"
     end
   end
   i.step "Unpack plugins" do |s,i|
     s.run "tar xf files/vim/vimfiles.tar.gz -C #{home_path}"
+    s.run "mv #{home_path}/vimfiles #{home_path}/.vim"
   end
   i.step "Copy config file" do |s,i|
     s.run "cp files/vim/vimrc #{home_path}/.vimrc"
