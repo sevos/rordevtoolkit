@@ -27,6 +27,9 @@ installation_unit "postgresql-server",
     s.surun "patch -Ns #{hba_file} files/postgres/pg_hba.conf.patch"  
     s.surun "chown postgres:postgres #{hba_file}"
   end
+
+  i.install_gem "pg ruby-pg"
+
   i.step "Restart server" do |s,i|
     sfile = s.sufind("*postgre*", ["/etc/init.d/"]).first
     s.surun "#{sfile} restart"

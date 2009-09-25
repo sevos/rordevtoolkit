@@ -29,22 +29,6 @@ class InstallationStep
     puts "\e[31m**   #{message}\e[0m"
     raise message
   end
-
-  def system
-    d = distribution
-    return AptAdapter.new if d == :ubuntu
-    return YumAdapter.new if d == :fedora
-    raise "RoRDevToolkit doesn't have system package support for your system!"
-  end
-
-  def gem
-    return GemAdapter.new
-  end
-
-  def jgem
-    return JRubyGemAdapter.new
-  end
-
 end
 
 

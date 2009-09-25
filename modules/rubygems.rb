@@ -1,9 +1,11 @@
 installation_unit "rubygems",
 :description => "Update Rubygems in system" do |i|
-  i.step "Install rubygems update in debian-way", :supported => :ubuntu do |s,i|
-    s.gem.install "rubygems-update"
+
+  i.install_gem "rubygems-update", :supported => :ubuntu
+  i.step "Update rubygems in debian-way", :supported => :ubuntu do |s,i|
     s.surun "/var/lib/gems/1.8/bin/update_rubygems"
   end
+
   i.step "Install rubygems update", :supported => :fedora do |s,i|
     s.surun "gem update --system"
   end

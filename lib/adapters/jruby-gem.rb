@@ -1,14 +1,22 @@
 require 'lib/shell.rb'
-
+require "lib/adapters/gem"
 class JRubyGemAdapter < GemAdapter
   include Shell
 
-  def install(package_name)
-    surun "jruby -S gem install #{package_name} #{@params.join(' ')}"
+  def install
+    surun "jruby -S gem install #{@package_list} #{@params.join(' ')}"
   end
 
-  def installed?(package_name)
-    `jruby -S gem list | grep #{package_name}` != ""
+  def description
+    "Install #{@package_list} into JRuby's gems"
+  end
+
+  # def installed?(package_name)
+  #   `jruby -S gem list | grep #{package_name}` != ""
+  # end
+
+  def self.supports
+    :jgem
   end
 
 end

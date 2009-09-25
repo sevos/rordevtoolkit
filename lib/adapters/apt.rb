@@ -3,8 +3,12 @@ require 'lib/shell.rb'
 class AptAdapter < PackageManager
   include Shell
 
-  def install(package_name)
-    surun "apt-get -y install #{package_name}"
+  def install
+    surun "apt-get -y install #{@package_list}"
+  end
+
+  def self.supports
+    :system_package if distribution == :ubuntu
   end
 
 end

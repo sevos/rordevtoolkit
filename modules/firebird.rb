@@ -27,9 +27,9 @@ installation_unit "fireruby",
   i.step "Build Fireruby" do |s,i|
     s.run "cd /tmp/fb; gem build fb.gemspec"
   end
-  i.step "Install gem" do |s,i|
-   s.gem.install Dir['/tmp/fb/fb*.gem'].first
-  end
+ 
+  i.install_gem '/tmp/fb/fb*.gem'
+  
   i.step "Remove sources" do |s,i|
     s.run "rm -fr /tmp/fb"
   end
@@ -44,9 +44,9 @@ installation_unit "fb_adapter",
   i.step "Build fb_adapter" do |s,i|
     s.run "cd /tmp/fb_adapter; rake gem"
   end
-  i.step "Install gem" do |s,i|
-   s.gem.install Dir['/tmp/fb_adapter/pkg/fb*.gem'].first
-  end
+
+  i.install_gem '/tmp/fb_adapter/pkg/fb*.gem'
+
   i.step "Remove sources" do |s,i|
     s.run "rm -fr /tmp/fb_adapter"
   end
