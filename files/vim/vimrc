@@ -7,3 +7,4 @@ map <c-p> :NERDTreeToggle<CR>
 
 colorscheme railscasts
 set guifont=Monospace\ 12
+set number

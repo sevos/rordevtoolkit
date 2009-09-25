@@ -12,7 +12,7 @@ class PackageManager
   end
 
   def installed?
-    puts "warning: installed? not implemented! assuming false"
+    puts "warning: installed? not implemented! assumming false"
     return false
   end
 
@@ -35,6 +35,9 @@ class PackageManager
 
   private
 
+  # looks trough all classes inheriting PackageManager class
+  # picks only supported in current distribution
+  # and creates according InstallationSteps for them
   def self.initialize_managers
     @@childs.reject! { |c| !c.supports }
     @@childs.each { |c| @@supported[c.supports] = c }
