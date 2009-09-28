@@ -33,6 +33,20 @@ class PackageManager
     @@supported.keys
   end
 
+  protected
+
+  def system_package_list(metapackage)
+    packages = metapackage.split
+    return metapackage if packages.size > 1
+
+    if package_config = PACKAGES[packages.first]
+      if pkg_list = package_config[distribution]
+        return pkg_list.join
+      end
+    end
+    return metapackage
+  end
+
   private
 
   # looks trough all classes inheriting PackageManager class

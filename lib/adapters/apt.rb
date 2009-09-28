@@ -4,7 +4,7 @@ class AptAdapter < PackageManager
   include Shell
 
   def install
-    surun "apt-get -y install #{@package_list}"
+    surun "apt-get -y install #{system_package_list @package_list}"
   end
 
   def self.supports

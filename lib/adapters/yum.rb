@@ -5,7 +5,7 @@ class YumAdapter < PackageManager
 
   def install
     puts "\e[31mEnter your root password below\e[0m"
-    surun "yum -yq install #{@package_list}"
+    surun "yum -yq install #{system_package_list @package_list}"
   end
 
   def self.supports
