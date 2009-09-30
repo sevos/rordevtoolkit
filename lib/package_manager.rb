@@ -36,12 +36,12 @@ class PackageManager
   protected
 
   def system_package_list(metapackage)
-    packages = metapackage.split
+    packages = metapackage.split(' ')
     return metapackage if packages.size > 1
 
     if package_config = PACKAGES[packages.first]
-      if pkg_list = package_config[distribution]
-        return pkg_list.join
+      if pkg_list = package_config[distribution.to_s]
+        return pkg_list
       end
     end
     return metapackage
