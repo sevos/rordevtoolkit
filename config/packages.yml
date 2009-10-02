@@ -18,3 +18,8 @@ libxslt1:
     desc:   XSLT library - required by Cucumber
     ubuntu: libxslt1.1 libxslt1-dev
     fedora: libxslt libxslt-devel
+build_essential:
+    desc: Packages required to build native extensions
+    ubuntu:
+    fedora: make g++
+    debian: make
