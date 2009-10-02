@@ -13,6 +13,9 @@ postgres:
 sqlite3:
     desc:   Sqlite3 server
     debian: sqlite3 libsqlite3-dev
+mysql:
+    desc:   MySQL server
+    debina: mysql-server libmysql++-dev
 libxml2:
     desc:   XML2 library - required by Cucumber
     ubuntu: libxml2 libxml2-dev
