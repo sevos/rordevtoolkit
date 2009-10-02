@@ -28,4 +28,4 @@ build_essential:
     desc: Packages required to build native extensions
     ubuntu:
     fedora: make g++
-    debian: make
+    debian: make g++ 
