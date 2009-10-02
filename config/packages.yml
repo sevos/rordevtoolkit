@@ -10,6 +10,9 @@ postgres:
     desc:   PostgreSQL server
     ubuntu: postgresql libpq-dev libpostgresql-ocaml-dev
     fedora: postgresql postgresql-server postgresql-devel
+sqlite3:
+    desc:   Sqlite3 server
+    debian: sqlite3 libsqlite3-dev
 libxml2:
     desc:   XML2 library - required by Cucumber
     ubuntu: libxml2 libxml2-dev
