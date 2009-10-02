@@ -11,4 +11,7 @@ echo "** Updating rubygems"
 rake module:rubygems:install
 echo "** Tasks"
 rake -T | grep -e "\:install.*\#"
-echo "Enter\n    rake -T\nfor details"
+echo "For details enter:
+
+$ rake -T"
+
