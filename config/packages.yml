@@ -20,6 +20,6 @@ libxslt1:
     fedora: libxslt libxslt-devel
 build_essential:
     desc: Packages required to build native extensions
-    ubuntu:
+    ubuntu: build-essential
     fedora: make g++
     debian: make
