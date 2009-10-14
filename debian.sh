@@ -9,6 +9,11 @@ echo "export PATH=/var/lib/gems/1.8/bin:\$PATH" >> ~/.bashrc
 export PATH=/var/lib/gems/1.8/bin:$PATH
 echo "** Updating rubygems"
 sudo gem install rubygems-update -v 1.3.1
+# Some problems during installation - have to figure out if these gems are necessary
+#sudo gem install builder
+#sudo gem install session
+#sudo gem install hoe-seattlerb
+#sudo gem install hoe -v 1.0.0
 sudo /var/lib/gems/1.8/bin/update_rubygems
 sudo gem install hoe -v 2.0.0
 rake module:rubygems:install
