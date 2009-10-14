@@ -9,7 +9,7 @@ echo "export PATH=/var/lib/gems/1.8/bin:\$PATH" >> ~/.bashrc
 export PATH=/var/lib/gems/1.8/bin:$PATH
 echo "** Updating rubygems"
 sudo gem install rubygems-update -v 1.3.1
-sudo PATH=/var/lib/gems/1.8/bin:$PATH update_rubygems
+sudo /var/lib/gems/1.8/bin/update_rubygems
 sudo gem install hoe -v 2.0.0
 rake module:rubygems:install
 echo "** Tasks"
