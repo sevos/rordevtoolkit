@@ -6,7 +6,7 @@ installation_unit "rubygems",
     s.surun "/var/lib/gems/1.8/bin/update_rubygems"
   end
 
-  i.step "Install rubygems update", :supported => :fedora do |s,i|
+  i.step "Install rubygems update", :supported => [:fedora, :gentoo] do |s,i|
     s.surun "gem update --system"
   end
   i.install_gem "rake"

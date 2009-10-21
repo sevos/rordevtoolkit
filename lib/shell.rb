@@ -1,10 +1,9 @@
 module Shell
+
+  include DistributionHelper 
   
   def shell_su_commands 
-    return {
-      :ubuntu => 'sudo /bin/sh -c "+cmd+"',
-      :fedora => 'su -c "+cmd+"'
-    }
+    DISTRIBUTIONS[distribution.to_s]["su_command"]
   end
 
   def run(cmd, catch_out = false)
@@ -16,7 +15,7 @@ module Shell
   end
 
   def surun(cmd, catch_out = false)
-    return run(shell_su_commands[distribution].gsub('+cmd+',cmd), catch_out)
+    return run(shell_su_commands.gsub('+cmd+',cmd), catch_out)
   end
 
   

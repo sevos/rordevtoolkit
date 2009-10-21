@@ -9,6 +9,8 @@ require 'lib/installation_step'
 class InstallationUnit
   attr_reader :name, :description
 
+  include DistributionHelper
+
   def initialize(name, opts = {}, &block)
     @name = name
     @supported_distributions = [*(opts[:supported])].compact
@@ -41,8 +43,9 @@ class InstallationUnit
 
   
   def step(description, opts = {}, &block)
-    supported = opts[:supported] || @upported_distributions
-    if [supported].include?(distribution) || supported.nil? || [supported].empty?
+    supported = opts[:supported] || @supported_distributions
+    supported = [supported] unless supported.is_a? Array
+    if supported.include?(distribution) || supported.nil? || supported.empty?
       @steps << InstallationStep.new(description, self, &block)
     end
   end

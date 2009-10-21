@@ -2,11 +2,7 @@
 
 class APIRDT
   include Shell
-
-
-  def distribution
-    distribution
-  end
+  include DistributionHelper
 
   def unit_list
     # @@INSTALLATION_UNITS.map do |type, units| 

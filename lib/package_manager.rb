@@ -1,4 +1,8 @@
+require 'lib/helpers'
+
 class PackageManager
+
+  extend DistributionHelper
 
   @@childs = []
   @@supported = {}
@@ -40,7 +44,7 @@ class PackageManager
     return metapackage if packages.size > 1
 
     if package_config = PACKAGES[packages.first]
-      if pkg_list = package_config[distribution.to_s]
+      if pkg_list = package_config[self.class.distribution.to_s]
         return pkg_list
       end
     end

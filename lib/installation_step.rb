@@ -8,11 +8,12 @@ class InstallationStep
   def initialize(description, unit, &block)
     @description = description
     @unit = unit
+    @block = block
     # create execute method
     class << self
       define_method :execute do
         info "#{@description.split("\n").first}"
-        return yield(self, @unit)
+        return @block.call(self, @unit)
       end
     end
   end

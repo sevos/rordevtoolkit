@@ -14,9 +14,11 @@ PackageManager.supported_managers.each do |manager|
   END_RUBY
   eval <<-END_RUBY
     class InstallationUnit
+      include DistributionHelper 
+
       def install_#{manager.to_s}(name, opts = {})
         if opts.empty? or [*(opts[:supported])].include? distribution
-          @steps << (eval '#{classname}').new(self, name) 
+          @steps << (eval '#{classname}').new(self, name)
         end
       end
     end

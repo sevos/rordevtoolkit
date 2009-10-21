@@ -1,0 +1,14 @@
+fedora:
+  check:
+    file_exists: "/usr/bin/yum" 
+  su_command: 'su -c "+cmd+"'
+ubuntu:
+  check: 
+    file_exists: "/usr/bin/apt-get" 
+  su_command: 'sudo /bin/sh -c "+cmd+"'
+gentoo:
+  check:
+    file_exists: "/usr/bin/emerge"
+  su_command: 'su -c "+cmd+"'
+
+
