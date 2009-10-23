@@ -17,29 +17,12 @@ everything you need for writing applications in Ruby and Rails.
 --------------------------------------------------------------------------------
     2. SUPPORTED DISTRIBUTIONS
 --------------------------------------------------------------------------------
-Standard recipes are written for Ubuntu and Fedora, but only Ubuntu recipes are 
-completly tested on fresh Ubuntu 9.04 Desktop installation. 
-RoRDevToolkit tries to detect your current distribution by finding distribution-
-specific files such as "apt-get" or "yum". However, mechanism is not perfect, so
-use it carefully. 
-Depending on your current distribution it can switch on/off some tasks/steps.
-
-Detecting module relays on config/distributions.rb file and sets current 
-distribution value to one of keys coming from the hash in that file.
+Standard recipes are written for Ubuntu.
 --------------------------------------------------------------------------------
     3. REQUIREMENTS
 --------------------------------------------------------------------------------
-First of all you need Ubuntu 9.04 or Fedora 11 (completly not tested on other
-ditributions). There is something you need to do before you start using the 
-tool:
-    For Fedora:
-      $  su -c "yum install ruby ruby-devel irb"
-      $  su -c "gem install rake"
-      $  ./rdt module:rubygems:install
-
-    For Ubuntu:
-      $  ./ubuntu.sh
-
+Run
+    ./init your_dustro_name
 These commands will install ruby interpreter and update rubygems. 
 --------------------------------------------------------------------------------
     4. QUICK START
